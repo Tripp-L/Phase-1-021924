@@ -73,6 +73,7 @@ const inventory = [
 //✅ Review objects?
 
 //✅ 1. Create hello world using REGULAR functions
+<<<<<<< HEAD
 function helloWorld(name){
    //"Hello World " + name 
    return `Hello World, ${name}`
@@ -89,12 +90,54 @@ function formatPriceFunctionDefinition(price) {
   return `$${fixedPrice}`
 }
 //✅ 3. Make an arrow function version of formatPrice
+=======
+// running `helloWorld()` invokes the function thus running the logic
+// running `helloWorld` will just print out the written logic (the function definition) without running the logic
+
+//HOISTING DIFFERENCES
+//function definitions are hoisted to the top (I can invoke them before I see the written logic)
+//console.log(formatPriceFunctionDefinition(1234.28394))
+//arrow functions are not hoisted to the top (I cannot invoke them until after I see the definition)
+//console.log(formatPriceArrowFunction(3.2523))
+
+
+// you can put a string directly as an argument helloWorld('Rachel')
+// or put in a variable that evaluates to a string
+// myName = 'Rachel'
+// helloWorld(myName)
+function helloWorld(name){
+  //"Hello World " + name 
+  return `Hello World, ${name}`
+}
+//✅ 2. For Easley's bookstore, create formatPrice(price)
+// 3.3333333 -> '$3.33'
+function formatPriceFunctionDefinition(price) {
+  // round out the price to 2 decimal places
+  // turn the price into a string
+  // add the '$'
+  // return the new string
+  fixedPrice = price.toFixed(2)
+  //return '$' + fixedPrice
+  return `$${fixedPrice}`
+}
+
+//✅ 3. Make an arrow function version of formatPrice
+// const formatPriceArrowFunction = function(price){
+//   fixedPrice = price.toFixed(2)
+//   return `$${fixedPrice}`
+// }
+
+>>>>>>> 9d91b455c4d750ff29f9c3cf6c379fbd37eac252
 const formatPriceArrowFunction = (price) => {
   fixedPrice = price.toFixed(2)
   return `$${fixedPrice}`
 }
 
 //✅ 4. WE DO: create a blurb() function that accepts a book as an argument and logs a message in the following format:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d91b455c4d750ff29f9c3cf6c379fbd37eac252
 const oneBook = {
   id: 1,
   title: 'Eloquent JavaScript: A Modern Introduction to Programming',
@@ -115,15 +158,23 @@ const twoBook = {
 }
 //'Eloquent JavaScript: A Modern Introduction to Programming by Marjin Haverbeke is on sale for $10.00'
 const blurb = (book) => {
+<<<<<<< HEAD
   // return book.title + ' by ' + ' is on sale for ' + formatPriceFunctionDefinition(book.price)
   return `${book.title} by ${book.author} is on sale for ${formatPriceArrowFunction(book.price)}`
 }
+=======
+  // return book.title + ' by ' + book.author + ' is on sale for ' + formatPriceArrowFunction(book.price)
+  return `${book.title} by ${book.author} is on sale for ${formatPriceArrowFunction(book.price)}`
+}
+
+>>>>>>> 9d91b455c4d750ff29f9c3cf6c379fbd37eac252
 //✅ 5. Call formatPrice on an array of prices
 
 //✅ 5a. Create an array
 const prices = [3, 2.3, 29.832, 3.33333]
 
 //✅ 5b. Use a for loop to iterate over prices
+<<<<<<< HEAD
 //[0...4]
 for (let i = 0; i < 4; i++) {
   //console.log(`i is ${i}, prices[i] is ${prices[i]}`)
@@ -136,6 +187,23 @@ for (let i = 0; i < 4; i++) {
 }
 //✅ 5d. Use .map to iterate over prices
 // original array (prices) does not get mutated
+=======
+//[0...4] 
+for(let i = 0; i < 4; i++) {
+  //console.log(`i is ${i}, prices[i] is ${prices[i]}`)
+}
+
+//✅ 5c. Use .forEach to iterate over prices
+//el => element 
+// i => index 
+// let forEachReturn = prices.forEach((el, i) => {
+//   console.log(`i is ${i}, prices[i] is ${el}`)
+// })
+
+
+//✅ 5d. Use .map to iterate over prices
+//original array (prices) does not get mutated
+>>>>>>> 9d91b455c4d750ff29f9c3cf6c379fbd37eac252
 let mapReturn = prices.map((el, i) => {
   //original element gets replaced with the return value
   return formatPriceFunctionDefinition(el)
@@ -164,6 +232,31 @@ const timesTen = numbers.map((el, i) => {
  const timesTwo = numbersTwo.map((el) => {
   return el * 2
  })
+
+
+let inventoryBlurbs = inventory.map((el, i) => {
+  //el represents one book in inventory
+  //blurb(el) will spit out one string
+  return blurb(el)
+})
+
+const numbers = [1, 2, 3, 4, 5, 6]
+//[10, 20, 30, 40, 50, 60]
+const timesTen = numbers.map((el, i) => {
+  return el * 10
+})
+
+const colors = ["red", "blue", "yellow", "green"]
+//["!red!", "!blue!", "!yellow!", "!green!"]
+const exclamationColors = colors.map((el) => {
+  return "!" + el + "!"
+})
+
+const numbersTwo = [6, 8, 10, 13]
+//[12, 16, 20, 26]
+const timesTwo = numbersTwo.map((el) => {
+  return el * 2
+})
 
 
 //✅ 6. Create a version of myMap that uses a for loop to mimic .map
